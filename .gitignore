@@ -1,0 +1,14 @@
+# Ferramentas e rascunhos usados para criar o site
+.agents/
+.claude/
+.impeccable/
+.superpowers/
+.taste-skill/
+skills-lock.json
+
+# Documentos internos de design
+DESIGN.md
+PRODUCT.md
+
+# Arquivos originais
+made-by-davy.zip
