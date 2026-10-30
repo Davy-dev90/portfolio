@@ -96,8 +96,7 @@ body.carregando-ativo .abre *{animation-play-state:paused!important}
 .menu-folha p span{flex:1}.menu-folha p small{color:var(--mech-luz);font-size:15px}
 .caixas{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .caixa{position:relative;overflow:hidden;padding:26px 24px 28px;border:1px solid var(--linha);border-radius:14px;background:var(--cartao-2);transition:transform .4s var(--saida),border-color .3s}
-.caixa::after{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--mech);transform:scaleY(0);transform-origin:top;transition:transform .5s var(--saida)}
-.caixa:hover{transform:translateY(-4px);border-color:rgb(226 72 58/.4)}.caixa:hover::after{transform:scaleY(1)}
+.caixa:hover{transform:translateY(-4px);border-color:rgb(226 72 58/.5)}
 .caixa__rotulo{display:inline-block;font-size:13px;letter-spacing:.06em;color:var(--mech-luz);margin-bottom:12px}
 .caixa p{font-family:var(--titulo);font-size:19px;line-height:1.5}
 .entra.visivel .caixa{animation:aparece .8s var(--saida) both}.entra.visivel .caixa+.caixa{animation-delay:.12s}
