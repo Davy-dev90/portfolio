@@ -129,8 +129,8 @@ body.carregando-ativo .abre *{animation-play-state:paused!important}
 .slide{position:absolute;inset:0;display:grid;place-items:center;transform:translateX(102%);transition:transform 1s var(--saida)}
 .slide.on{transform:none}.slide.foi{transform:translateX(-102%)}
 .slide .nav,.slide .cel,.slide .marca-peca{transform:scale(.62)}
-.slide .mock-site{transform:scale(.62)}.slide .mock-site .nav,.slide .mock-site .cel{transform:none}
-.q-contato .slide .mock-site{transform:none;width:64%}
+.slide .mock-site{transform:scale(.62)}.slide .dupla{transform:scale(.72)}.slide .dupla .cel{transform:none}.slide .mock-site .nav,.slide .mock-site .cel{transform:none}
+.q-contato .slide .mock-site{transform:none;width:64%}.q-contato .slide .dupla{transform:none;width:72%}
 .slide b.tit{position:absolute;left:52px;bottom:14px;font-family:var(--titulo);font-weight:400;font-size:18px;color:var(--osso)}
 .pontos{position:absolute;right:52px;bottom:18px;display:flex;gap:6px}.pontos i{width:6px;height:6px;border-radius:50%;background:var(--linha)}.pontos i.on{background:var(--mech-luz)}
 .q-contato .slide .nav,.q-contato .slide .cel,.q-contato .slide .marca-peca{transform:none}.q-contato .slide b.tit{left:24px;bottom:56px;font-size:24px}.q-contato .slide .nav{width:62%}.q-contato .pontos{right:24px;bottom:62px}
@@ -203,7 +203,17 @@ body.carregando-ativo .abre *{animation-play-state:paused!important}
 .cel{width:220px;aspect-ratio:9/18.5;background:#0a0505;border-radius:30px;padding:10px;box-shadow:0 40px 80px -24px #000,inset 0 0 0 2px #1a3042}
 .cel .tela{height:100%;border-radius:22px;background:#ebf1f5;overflow:hidden;color:#010b13;font-size:13px}
 .cel .perfil{display:flex;gap:8px;align-items:center;padding:30px 12px 10px}.cel .perfil i{width:34px;height:34px;border-radius:50%;background:var(--tinta)}
-.cel .g{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}.cel .g i{aspect-ratio:1;background:#0f2231}.cel .g i:nth-child(2n){background:#d3dce2}.cel .g i:nth-child(3n){background:#526878}
+.dupla{display:flex;align-items:center;justify-content:center;gap:6%;width:88%}
+.dupla .cel{flex:0 0 36%;width:auto;padding:7px;border-radius:24px}
+.dupla .cel .tela{border-radius:18px;background:#fff}
+.dupla .original{flex:0 0 52%;box-shadow:0 34px 70px -28px #000;border-radius:4px;overflow:hidden}
+.rot{position:relative;display:grid}.rot>*{grid-area:1/1;opacity:0;transition:opacity .7s ease}.rot>.on{opacity:1}
+.rot--img img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover}
+.post-topo{display:flex;align-items:center;gap:6px;padding:26px 8px 7px;font-size:10px}.post-topo i{flex:none;width:20px;height:20px;border-radius:50%;background:conic-gradient(#fd5949,#d6249f,#285aeb,#fdf497,#fd5949);box-shadow:inset 0 0 0 2px #fff,inset 0 0 0 9px #0f2231}
+.post-topo b{font:600 10px/1.2 var(--texto);letter-spacing:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.post-topo .rot{min-width:0}.post-topo u{margin-left:auto;text-decoration:none;color:#526878;letter-spacing:1px}
+.post-acoes{display:flex;gap:9px;padding:8px 8px 6px}.post-acoes svg{width:15px;height:15px;fill:none;stroke:#010b13;stroke-width:1.9;stroke-linejoin:round}
+.post-linhas{display:grid;gap:5px;padding:2px 8px}.post-linhas span{height:5px;width:46%;border-radius:3px;background:#d3dce2}.post-linhas span+span{width:78%}
+.cel .g{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}.cel .g img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover}.cel .g i{aspect-ratio:1;background:#0f2231}.cel .g i:nth-child(2n){background:#d3dce2}.cel .g i:nth-child(3n){background:#526878}
 .onda{display:flex;align-items:center;gap:5px;height:170px}.onda i{width:7px;background:var(--mech-luz);border-radius:4px;animation:pulsa 1.1s ease-in-out infinite}
 @keyframes pulsa{0%,100%{transform:scaleY(.35)}50%{transform:scaleY(1)}}
 .pod{display:grid;justify-items:center;gap:26px;color:var(--osso)}.pod b{font-family:var(--titulo);font-weight:400;font-size:28px}
@@ -220,6 +230,28 @@ dialog[open]::backdrop{animation:fundo .4s ease}
 @keyframes fundo{from{opacity:0}}
 .det{display:grid;grid-template-columns:1.1fr 1fr;height:100%}
 .det .vis{margin:12px;border-radius:12px;position:relative;overflow:hidden;display:grid;place-items:center}
+.galeria{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;width:100%;height:100%;padding:18px;align-content:center}
+.galeria button{display:block;padding:0;border:0;background:none;overflow:hidden;border-radius:6px;cursor:zoom-in}
+.galeria img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;transition:transform .5s var(--saida)}
+.galeria button:hover img{transform:scale(1.04)}
+/* slide das artes */
+#artes{width:100vw;height:100svh;border:0;border-radius:0;background:rgb(1 11 19/.97)}
+#artes[open]{animation:fundo .35s ease}
+.artes{display:grid;grid-template-rows:auto 1fr auto;height:100%;padding:18px 24px 22px}
+.artes__topo{display:flex;align-items:center;gap:14px;min-height:44px;padding-right:56px}
+.artes__aviso{display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border-radius:999px;background:rgba(235,241,245,.08);box-shadow:inset 0 0 0 1px rgba(235,241,245,.16);font-size:13px;color:var(--osso)}
+.artes__aviso::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--osso)}
+.artes__conta{margin-left:auto;font-size:14px;color:var(--suave);font-variant-numeric:tabular-nums}
+.artes__palco{position:relative;display:grid;place-items:center;min-height:0;touch-action:pan-y}
+.artes__palco img{position:absolute;inset:0;margin:auto;max-width:100%;max-height:100%;width:auto;height:auto;border-radius:6px;box-shadow:0 30px 70px -30px #000;user-select:none;-webkit-user-drag:none}
+.artes__seta{position:absolute;top:50%;translate:0 -50%;z-index:2;width:52px;height:52px;border-radius:50%;border:0;color:var(--osso);font-size:20px;cursor:pointer;background:rgba(235,241,245,.1);-webkit-backdrop-filter:blur(12px) saturate(1.3);backdrop-filter:blur(12px) saturate(1.3);box-shadow:inset 0 1px 1px rgba(255,255,255,.35),inset 0 0 0 1px rgba(235,241,245,.22),0 10px 24px -10px rgba(0,0,0,.7);transition:background .25s,transform .2s}
+.artes__seta:hover{background:rgba(235,241,245,.18)}.artes__seta:active{transform:scale(.94)}
+.artes__seta--esq{left:0}.artes__seta--dir{right:0}
+.artes__rodape{display:flex;flex-direction:column;align-items:center;gap:12px;padding-top:16px}
+.artes__nome{font-family:var(--titulo);font-size:22px}
+.artes__pontos{display:flex;gap:8px}
+.artes__pontos button{width:8px;height:8px;padding:0;border:0;border-radius:99px;background:rgba(235,241,245,.3);cursor:pointer;transition:width .35s var(--saida),background .25s}
+.artes__pontos button[aria-current="true"]{width:24px;background:var(--osso)}
 .det .txt{padding:52px 44px 28px 32px;display:flex;flex-direction:column;overflow:auto}
 .det .txt>*{animation:aparece .7s var(--saida) both}.det .txt>:nth-child(2){animation-delay:.05s}.det .txt>:nth-child(3){animation-delay:.1s}.det .txt>:nth-child(4){animation-delay:.15s}
 .det .meta{color:var(--mech-luz);font-size:15px}
@@ -228,6 +260,7 @@ dialog[open]::backdrop{animation:fundo .4s ease}
 .ficha{display:grid;grid-template-columns:repeat(3,1fr);margin:26px 0;border-top:1px solid var(--linha);border-bottom:1px solid var(--linha)}
 .ficha div{padding:14px 12px 14px 0}.ficha div+div{padding-left:12px;border-left:1px solid var(--linha)}
 .ficha dt{font-size:13px;letter-spacing:.02em;color:var(--suave)}.ficha dd{margin:2px 0 0;font-size:18px}
+.acoes-det{display:flex;flex-wrap:wrap;gap:10px}
 .det .nav-det{display:flex;justify-content:space-between;align-items:center;margin-top:auto;padding-top:20px;font-size:15px;color:var(--suave)}
 .fechar{position:absolute;top:16px;right:16px;z-index:5;width:44px;height:44px;border-radius:50%;border:0;color:var(--osso);background:rgba(235,241,245,.1);-webkit-backdrop-filter:blur(12px) saturate(1.3);backdrop-filter:blur(12px) saturate(1.3);box-shadow:inset 0 1px 1px rgba(255,255,255,.35),inset 0 0 0 1px rgba(235,241,245,.22),0 10px 24px -10px rgba(0,0,0,.7);font-size:20px;cursor:pointer;transition:transform .3s var(--saida)}
 .fechar:hover{transform:rotate(90deg)}
@@ -262,11 +295,13 @@ dialog[open]::backdrop{animation:fundo .4s ease}
   .livro b{font-size:22px}
   .livro .previa-cel{display:grid;place-items:center;height:0;overflow:hidden;border-radius:12px;transition:height .5s var(--saida),margin .5s var(--saida)}
   .livro li.ativo .previa-cel{height:240px;margin:0 0 16px}
-  .livro .previa-cel .nav{width:80%}.livro .previa-cel .cel{width:110px}.livro .previa-cel .mock-site{width:74%}.livro .previa-cel .mock-site .nav{width:100%}.livro .previa-cel .mock-site .cel{width:26%}.livro .previa-cel .cel .perfil b{display:none}
+  .livro .previa-cel .nav{width:80%}.livro .previa-cel .cel{width:110px}.livro .previa-cel .mock-site{width:74%}.livro .previa-cel .mock-site .nav{width:100%}.livro .previa-cel .mock-site .cel{width:26%}.livro .previa-cel .cel .perfil b{display:none}.livro .previa-cel .dupla{width:62%}.livro .previa-cel .dupla .cel{width:auto;padding:4px;border-radius:14px}.livro .previa-cel .dupla .cel .tela{border-radius:11px}.livro .previa-cel .post-topo{padding:12px 5px 4px;gap:4px}.livro .previa-cel .post-topo b{font-size:6px}.livro .previa-cel .post-topo u{font-size:6px}.livro .previa-cel .post-acoes{gap:5px;padding:4px 5px}.livro .previa-cel .post-linhas{gap:3px;padding:1px 5px}.livro .previa-cel .post-linhas span{height:3px}.livro .previa-cel .post-topo i{width:11px;height:11px}.livro .previa-cel .post-acoes svg{width:9px;height:9px}
   .det{grid-template-columns:1fr;grid-template-rows:38svh 1fr}
   .det .txt{padding:22px 20px 18px}
   dialog{width:100vw;height:100svh;border-radius:0;border:0}
   .ficha dd{font-size:16px}
+  .artes{padding:14px 12px 18px}.artes__topo{flex-wrap:wrap;gap:8px;padding-right:52px}.artes__aviso{font-size:12px}
+  .artes__seta{display:none}.artes__nome{font-size:19px}
   .flutua{right:16px;bottom:max(16px,env(safe-area-inset-bottom));gap:8px}
   .flutua__item{width:48px;height:48px}.flutua__item span{display:none}
 }
@@ -349,6 +384,18 @@ dialog[open]::backdrop{animation:fundo .4s ease}
   <div class="det"><div class="vis" id="det-vis"></div>
     <div class="txt" id="det-txt"></div></div>
 </dialog>
+<dialog id="artes" aria-label="Artes para Instagram">
+  <button class="fechar" id="artes-fechar" aria-label="Fechar">✕</button>
+  <div class="artes">
+    <div class="artes__topo"><span class="artes__aviso">Apenas ilustrativos · marcas fictícias</span><span class="artes__conta" id="artes-conta"></span></div>
+    <div class="artes__palco" id="artes-palco">
+      <button class="artes__seta artes__seta--esq" data-a="-1" aria-label="Arte anterior">←</button>
+      <img id="artes-img" src="assets/projetos/instagram/01-vertice.jpg" alt="Post para VÉRTICE, tecnologia" loading="lazy">
+      <button class="artes__seta artes__seta--dir" data-a="1" aria-label="Próxima arte">→</button>
+    </div>
+    <div class="artes__rodape"><span class="artes__nome" id="artes-nome"></span><div class="artes__pontos" id="artes-pontos"></div></div>
+  </div>
+</dialog>
 
 <script src="assets/waterline.js"></script>
 <script>
@@ -371,26 +418,48 @@ dialog[open]::backdrop{animation:fundo .4s ease}
   })();
 })();
 
+/* artes para Instagram: marcas fictícias, projetos ilustrativos */
+const ARTES = [
+  {src:"assets/projetos/instagram/01-vertice.jpg",nome:"VÉRTICE, tecnologia",user:"vertice"},
+  {src:"assets/projetos/instagram/02-alba.jpg",nome:"ALBA Atelier, moda",user:"albaatelier"},
+  {src:"assets/projetos/instagram/03-bruto.jpg",nome:"BRUTO, hamburgueria",user:"brutosmash"},
+  {src:"assets/projetos/instagram/04-lumina.jpg",nome:"LÚMINA, estética",user:"lumina.estetica"},
+  {src:"assets/projetos/instagram/05-linha.jpg",nome:"LINHA, imobiliária",user:"linhaimoveis"},
+  {src:"assets/projetos/instagram/06-forja.jpg",nome:"FORJA, academia",user:"forja.academia"}
+];
+const GALERIA = () => `<div class="galeria">${ARTES.map((a, i) => `<button type="button" data-arte="${i}" aria-label="Ver ${a.nome} em slide"><img src="${a.src}" alt="Post para ${a.nome}" loading="lazy"></button>`).join("")}</div>`;
+
 /* peças visuais (representações dos trabalhos) */
 const PECAS = {
   foto: () => `<div class="img"></div>`,
   proprio: () => `<div class="mock-site"><div class="nav nav--foto"><div class="barra"><i></i><i></i><i></i><u></u></div><img src="assets/projetos/portfolio-computador.jpg" alt="O portfólio aberto no computador" loading="lazy"></div><div class="cel cel--foto"><img src="assets/projetos/portfolio-celular.jpg" alt="O portfólio aberto no celular" loading="lazy"></div></div>`,
   site: () => `<div class="nav"><div class="barra"><i></i><i></i><i></i><u></u></div><div class="corpo"><b>Seu negócio aqui</b><span></span><span style="width:50%"></span><em>Pedir no WhatsApp</em></div></div>`,
-  insta: () => `<div class="cel"><div class="tela"><div class="perfil"><i></i><b>@seunegocio</b></div><div class="g">${"<i></i>".repeat(12)}</div></div></div>`,
+  insta: () => `<div class="dupla"><div class="cel"><div class="tela"><div class="post-topo"><i></i><span class="rot">${ARTES.map((a, j) => `<b class="${j ? "" : "on"}">${a.user}</b>`).join("")}</span><u>•••</u></div>
+    <div class="rot rot--img">${ARTES.map((a, j) => `<img class="${j ? "" : "on"}" src="${a.src}" alt="" loading="lazy">`).join("")}</div>
+    <div class="post-acoes"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10Z"/></svg><svg viewBox="0 0 24 24"><path d="M20 11.5a8 8 0 0 1-11.6 7.1L4 20l1.4-4.2A8 8 0 1 1 20 11.5Z"/></svg><svg viewBox="0 0 24 24"><path d="M21 4 3 11l7 2.5L12.5 21 21 4Z"/></svg></div>
+    <div class="post-linhas"><span></span><span></span></div></div></div>
+    <div class="rot rot--img original">${ARTES.map((a, j) => `<img class="${j ? "" : "on"}" src="${a.src}" alt="" loading="lazy">`).join("")}</div></div>`,
   marca: () => `<div class="marca-peca"><div class="sim">D</div><div class="cores"><i style="background:#010b13"></i><i style="background:#526878"></i><i style="background:#ebf1f5;border:1px solid #c3ccd3"></i></div></div>`,
   carta: () => `<div class="frase"><span>Cada projeto,</span><em>com atenção.</em></div>`,
   contato: () => `<div class="slides" id="slides-palco"></div>`,
   pod: () => `<div class="foto-livre" role="img" aria-label="Microfone de estúdio em fundo preto"></div>`,
 };
-const LEGENDAS = {carta:"Sobre mim",contato:"Fale comigo",foto:"Davy, 2026",proprio:"Este portfólio · 2026",site:"Site para pequeno negócio · representação",insta:"Artes para Instagram · representação",marca:"Identidade visual · representação",pod:"Experiências e cursos"};
+const LEGENDAS = {carta:"Sobre mim",contato:"Fale comigo",foto:"Davy, 2026",proprio:"Este portfólio · 2026",site:"Site para pequeno negócio · representação",insta:"Artes para Instagram · projetos ilustrativos",marca:"Identidade visual · representação",pod:"Experiências e cursos"};
 const ORDEM = ["foto","proprio","site","insta","pod","contato"];
 
 const PROJETOS = [
   {q:"proprio",titulo:"Este portfólio",meta:"Sites · 2026",status:"Pronto",tipo:"Sites",ano:"2026",desc:"Queria um lugar meu na internet, com a minha cara. Planejei as seções e montei cada parte com ajuda da inteligência artificial, testando no computador e no celular."},
   {q:"site",titulo:"Site para pequeno negócio",meta:"Sites",status:"Em produção",tipo:"Sites",ano:"—",desc:"Estou trabalhando nele agora. Quando ficar pronto, aqui vão aparecer as telas do site e o que mudou para o negócio."},
-  {q:"insta",titulo:"Artes para Instagram",meta:"Instagram",status:"Em produção",tipo:"Instagram",ano:"—",desc:"Posts e stories com um visual que dá para reconhecer de longe. Em breve, o antes e o depois do perfil."},
+  {q:"insta",titulo:"Artes para Instagram",meta:"Instagram · 6 posts",status:"Projeto ilustrativo",tipo:"Instagram",ano:"2026",galeria:true,desc:"Seis posts para seis nichos: tecnologia, moda, hamburgueria, estética, imobiliária e academia. As marcas são fictícias, criadas para mostrar como adapto o visual a cada tipo de cliente. Clique numa arte para ver todas em slide."},
   {q:"marca",titulo:"Identidade visual",meta:"Design",status:"Em produção",tipo:"Design",ano:"—",desc:"Logo, cores e jeito de falar para uma marca nova. Em breve, aqui vai aparecer como ela ficou aplicada."}
 ];
+
+/* artes do Instagram passando: celular e original trocam juntos */
+let arteRot = 0;
+if (!matchMedia("(prefers-reduced-motion: reduce)").matches) setInterval(() => {
+  arteRot = (arteRot + 1) % ARTES.length;
+  document.querySelectorAll(".dupla .rot").forEach(r => [...r.children].forEach((e, j) => e.classList.toggle("on", j === arteRot)));
+}, 3200);
 
 /* palco */
 const palco = document.getElementById("palco");
@@ -406,7 +475,7 @@ function mostrar(q){
 
 /* projetos */
 const livro = document.getElementById("livro");
-livro.innerHTML = PROJETOS.map((p,i) => `<li data-q="${p.q}"><button type="button" data-i="${i}"><span class="nr">0${i+1}</span><span><b>${p.titulo}${p.status==="Em produção"?'<span class="selo">em produção</span>':""}</b><small>${p.meta}</small></span><span class="seta">↗</span></button><div class="previa-cel">${PECAS[p.q]()}</div></li>`).join("");
+livro.innerHTML = PROJETOS.map((p,i) => `<li data-q="${p.q}"><button type="button" data-i="${i}"><span class="nr">0${i+1}</span><span><b>${p.titulo}${p.status==="Em produção"?'<span class="selo">em produção</span>':p.status==="Projeto ilustrativo"?'<span class="selo">projeto ilustrativo</span>':""}</b><small>${p.meta}</small></span><span class="seta">↗</span></button><div class="previa-cel">${PECAS[p.q]()}</div></li>`).join("");
 const itens = [...livro.children];
 const celular = () => matchMedia("(max-width: 760px)").matches;
 itens.forEach(li => {
@@ -422,10 +491,10 @@ const painel = document.getElementById("painel"); let aberto = 0;
 function preencher(i){
   const p = PROJETOS[i]; aberto = i;
   document.getElementById("det-vis").className = `vis q-${p.q}`;
-  document.getElementById("det-vis").innerHTML = PECAS[p.q]();
+  document.getElementById("det-vis").innerHTML = p.galeria ? GALERIA() : PECAS[p.q]();
   document.getElementById("det-txt").innerHTML = `<p class="meta">${p.meta}</p><h3 id="det-t">${p.titulo}</h3><p class="desc">${p.desc}</p>
     <dl class="ficha"><div><dt>Tipo</dt><dd>${p.tipo}</dd></div><div><dt>Ano</dt><dd>${p.ano}</dd></div><div><dt>Situação</dt><dd>${p.status}</dd></div></dl>
-    <div><a class="botao botao--cheio" href="https://wa.me/5583981788413?text=${encodeURIComponent(`Olá Davy! Vi "${p.titulo}" no seu portfólio.`)}" target="_blank" rel="noopener">Falar sobre isso <span class="seta">→</span></a></div>
+    <div class="acoes-det">${p.galeria ? `<button class="botao botao--cheio" type="button" data-arte="0">Ver as artes <span class="seta">→</span></button>` : ""}<a class="botao ${p.galeria ? "botao--linha" : "botao--cheio"}" href="https://wa.me/5583981788413?text=${encodeURIComponent(`Olá Davy! Vi "${p.titulo}" no seu portfólio.`)}" target="_blank" rel="noopener">Falar sobre isso <span class="seta">→</span></a></div>
     <div class="nav-det"><button class="botao botao--linha" data-p="-1"><span class="seta seta--esq">←</span> Anterior</button><span>${i+1} de ${PROJETOS.length}</span><button class="botao botao--linha" data-p="1">Próximo <span class="seta">→</span></button></div>`;
   document.querySelectorAll("#det-txt [data-p]").forEach(b => b.onclick = () => preencher((aberto + +b.dataset.p + PROJETOS.length) % PROJETOS.length));
 }
@@ -440,6 +509,44 @@ function abrir(i, li){
 }
 document.getElementById("fechar").onclick = () => painel.close();
 painel.addEventListener("click", e => { if (e.target === painel) painel.close(); });
+
+/* artes para Instagram em slide, uma por vez */
+const artes = document.getElementById("artes"), artesImg = document.getElementById("artes-img");
+const artesPontos = document.getElementById("artes-pontos"); let arteAtual = 0;
+artesPontos.innerHTML = ARTES.map((a, i) => `<button type="button" data-ir="${i}" aria-label="Ir para ${a.nome}"></button>`).join("");
+function verArte(i, dir = 0){
+  arteAtual = (i + ARTES.length) % ARTES.length;
+  const a = ARTES[arteAtual];
+  artesImg.src = a.src; artesImg.alt = `Post para ${a.nome}`;
+  document.getElementById("artes-nome").textContent = a.nome;
+  document.getElementById("artes-conta").textContent = `${arteAtual + 1} / ${ARTES.length}`;
+  artesPontos.querySelectorAll("button").forEach((b, j) => b.setAttribute("aria-current", j === arteAtual));
+  [1, -1].forEach(d => { new Image().src = ARTES[(arteAtual + d + ARTES.length) % ARTES.length].src; });
+  if (dir && !matchMedia("(prefers-reduced-motion: reduce)").matches)
+    artesImg.animate([{opacity:0, transform:`translateX(${dir * 40}px)`}, {opacity:1, transform:"none"}], {duration:420, easing:"cubic-bezier(.2,.9,.2,1)"});
+}
+document.addEventListener("click", e => {
+  const b = e.target.closest("[data-arte]"); if (!b) return;
+  verArte(+b.dataset.arte); artes.showModal();
+});
+artes.addEventListener("click", e => {
+  const s = e.target.closest("[data-a]"), p = e.target.closest("[data-ir]");
+  if (s) verArte(arteAtual + +s.dataset.a, +s.dataset.a);
+  else if (p) verArte(+p.dataset.ir, +p.dataset.ir > arteAtual ? 1 : -1);
+  else if (e.target === artes || e.target.id === "artes-palco") artes.close();
+});
+document.getElementById("artes-fechar").onclick = () => artes.close();
+artes.addEventListener("keydown", e => {
+  if (e.key === "ArrowRight") verArte(arteAtual + 1, 1);
+  if (e.key === "ArrowLeft") verArte(arteAtual - 1, -1);
+});
+/* no celular: arrastar para o lado troca de arte */
+let toqueX = null;
+artes.addEventListener("pointerdown", e => { toqueX = e.clientX; });
+artes.addEventListener("pointerup", e => {
+  if (toqueX === null) return; const dx = e.clientX - toqueX; toqueX = null;
+  if (Math.abs(dx) > 50) verArte(arteAtual + (dx < 0 ? 1 : -1), dx < 0 ? 1 : -1);
+});
 
 /* contato: projetos passando em slides */
 function montarSlides(alvo){
