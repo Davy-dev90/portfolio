@@ -176,7 +176,7 @@ body.carregando-ativo .abre *{animation-play-state:paused!important}
 .frase{font-family:var(--titulo);color:var(--tinta);text-align:center;font-size:clamp(40px,4vw,64px);line-height:1.05;letter-spacing:-.02em;padding:0 32px}
 .frase span,.frase em{display:block}.frase em{font-style:italic}
 .q-contato{background:#03101a}
-.q-site{background:#0f2231}.q-proprio{background:#081723}.q-insta{background:#0a1a27}.q-pod{background:#010910}
+.q-site{background:#0f2231}.q-proprio{background:#081723}.q-techcell{background:#050b18}.q-insta{background:#0a1a27}.q-pod{background:#010910}
 .foto-livre{position:absolute;inset:0;background:url(assets/microfone.jpg) 38% center/cover}
 .foto-livre::after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,rgb(1 11 19/.55),transparent 60%),linear-gradient(0deg,rgb(1 11 19/.6),transparent 40%);mix-blend-mode:normal}
 .q-pod .foto-livre{filter:grayscale(1) contrast(1.08)}.q-marca{background:var(--osso)}
@@ -433,6 +433,7 @@ const GALERIA = () => `<div class="galeria">${ARTES.map((a, i) => `<button type=
 const PECAS = {
   foto: () => `<div class="img"></div>`,
   proprio: () => `<div class="mock-site"><div class="nav nav--foto"><div class="barra"><i></i><i></i><i></i><u></u></div><img src="assets/projetos/portfolio-computador.jpg" alt="O portfólio aberto no computador" loading="lazy"></div><div class="cel cel--foto"><img src="assets/projetos/portfolio-celular.jpg" alt="O portfólio aberto no celular" loading="lazy"></div></div>`,
+  techcell: () => `<div class="mock-site"><div class="nav nav--foto"><div class="barra"><i></i><i></i><i></i><u></u></div><img src="assets/projetos/techcell-computador.jpg" alt="Site da TECHCELL aberto no computador" loading="lazy"></div><div class="cel cel--foto"><img src="assets/projetos/techcell-celular.jpg" alt="Site da TECHCELL aberto no celular" loading="lazy"></div></div>`,
   site: () => `<div class="nav"><div class="barra"><i></i><i></i><i></i><u></u></div><div class="corpo"><b>Seu negócio aqui</b><span></span><span style="width:50%"></span><em>Pedir no WhatsApp</em></div></div>`,
   insta: () => `<div class="dupla"><div class="cel"><div class="tela"><div class="post-topo"><i></i><span class="rot">${ARTES.map((a, j) => `<b class="${j ? "" : "on"}">${a.user}</b>`).join("")}</span><u>•••</u></div>
     <div class="rot rot--img">${ARTES.map((a, j) => `<img class="${j ? "" : "on"}" src="${a.src}" alt="" loading="lazy">`).join("")}</div>
@@ -444,10 +445,11 @@ const PECAS = {
   contato: () => `<div class="slides" id="slides-palco"></div>`,
   pod: () => `<div class="foto-livre" role="img" aria-label="Microfone de estúdio em fundo preto"></div>`,
 };
-const LEGENDAS = {carta:"Sobre mim",contato:"Fale comigo",foto:"Davy, 2026",proprio:"Este portfólio · 2026",site:"Site para pequeno negócio · representação",insta:"Artes para Instagram · projetos ilustrativos",marca:"Identidade visual · representação",pod:"Experiências e cursos"};
-const ORDEM = ["foto","proprio","site","insta","pod","contato"];
+const LEGENDAS = {carta:"Sobre mim",contato:"Fale comigo",foto:"Davy, 2026",proprio:"Este portfólio · 2026",techcell:"TECHCELL · loja conceitual · 2026",site:"Site para pequeno negócio · representação",insta:"Artes para Instagram · projetos ilustrativos",marca:"Identidade visual · representação",pod:"Experiências e cursos"};
+const ORDEM = ["foto","techcell","proprio","site","insta","pod","contato"];
 
 const PROJETOS = [
+  {q:"techcell",titulo:"TECHCELL, loja de smartphones",meta:"Sites · 2026",status:"Projeto ilustrativo",tipo:"Sites",ano:"2026",link:"https://techcell-seven.vercel.app",desc:"Uma loja de celulares fictícia que criei para mostrar o tipo de site que consigo entregar. Na primeira tela, iPhone 17 Pro Max, Galaxy S26 Ultra e Z Fold7 giram em volta com efeito 3D. Dá para filtrar por marca, preço e armazenamento, abrir os detalhes de cada aparelho, montar um carrinho e mandar o pedido pelo WhatsApp. A marca, os preços e o número são ilustrativos."},
   {q:"proprio",titulo:"Este portfólio",meta:"Sites · 2026",status:"Pronto",tipo:"Sites",ano:"2026",desc:"Queria um lugar meu na internet, com a minha cara. Planejei as seções e montei cada parte com ajuda da inteligência artificial, testando no computador e no celular."},
   {q:"site",titulo:"Site para pequeno negócio",meta:"Sites",status:"Em produção",tipo:"Sites",ano:"—",desc:"Estou trabalhando nele agora. Quando ficar pronto, aqui vão aparecer as telas do site e o que mudou para o negócio."},
   {q:"insta",titulo:"Artes para Instagram",meta:"Instagram · 6 posts",status:"Projeto ilustrativo",tipo:"Instagram",ano:"2026",galeria:true,desc:"Seis posts para seis nichos: tecnologia, moda, hamburgueria, estética, imobiliária e academia. As marcas são fictícias, criadas para mostrar como adapto o visual a cada tipo de cliente. Clique numa arte para ver todas em slide."},
@@ -494,7 +496,7 @@ function preencher(i){
   document.getElementById("det-vis").innerHTML = p.galeria ? GALERIA() : PECAS[p.q]();
   document.getElementById("det-txt").innerHTML = `<p class="meta">${p.meta}</p><h3 id="det-t">${p.titulo}</h3><p class="desc">${p.desc}</p>
     <dl class="ficha"><div><dt>Tipo</dt><dd>${p.tipo}</dd></div><div><dt>Ano</dt><dd>${p.ano}</dd></div><div><dt>Situação</dt><dd>${p.status}</dd></div></dl>
-    <div class="acoes-det">${p.galeria ? `<button class="botao botao--cheio" type="button" data-arte="0">Ver as artes <span class="seta">→</span></button>` : ""}<a class="botao ${p.galeria ? "botao--linha" : "botao--cheio"}" href="https://wa.me/5583981788413?text=${encodeURIComponent(`Olá Davy! Vi "${p.titulo}" no seu portfólio.`)}" target="_blank" rel="noopener">Falar sobre isso <span class="seta">→</span></a></div>
+    <div class="acoes-det">${p.galeria ? `<button class="botao botao--cheio" type="button" data-arte="0">Ver as artes <span class="seta">→</span></button>` : ""}${p.link ? `<a class="botao botao--cheio" href="${p.link}" target="_blank" rel="noopener">Ver o site <span class="seta">→</span></a>` : ""}<a class="botao ${p.galeria || p.link ? "botao--linha" : "botao--cheio"}" href="https://wa.me/5583981788413?text=${encodeURIComponent(`Olá Davy! Vi "${p.titulo}" no seu portfólio.`)}" target="_blank" rel="noopener">Falar sobre isso <span class="seta">→</span></a></div>
     <div class="nav-det"><button class="botao botao--linha" data-p="-1"><span class="seta seta--esq">←</span> Anterior</button><span>${i+1} de ${PROJETOS.length}</span><button class="botao botao--linha" data-p="1">Próximo <span class="seta">→</span></button></div>`;
   document.querySelectorAll("#det-txt [data-p]").forEach(b => b.onclick = () => preencher((aberto + +b.dataset.p + PROJETOS.length) % PROJETOS.length));
 }
