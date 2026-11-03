@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://davstudiio.vercel.app/sitemap.xml

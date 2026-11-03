@@ -1,11 +1,35 @@
 <!DOCTYPE html>
 <html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Davy · Sites e artes feitos com cuidado</title>
-<meta name="description" content="Davy cria sites, artes para Instagram e identidades visuais com inteligência artificial, e administra redes sociais.">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4ET2LEHL5F"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-4ET2LEHL5F');
+</script>
+<meta name="google-site-verification" content="u8LvB6zqidbPJ_lg7L8ZKuDj4T1V-CcwPsqxMYzYj6g">
+<title>dav studio · Sites, artes e identidade visual, por Davy</title>
+<meta name="description" content="Davy, da dav studio, cria sites, artes para Instagram e identidades visuais com inteligência artificial, e administra redes sociais.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://davstudiio.vercel.app/">
 <meta name="theme-color" content="#010b13">
-<meta property="og:title" content="Davy · Sites e artes feitos com cuidado">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="dav studio">
+<meta property="og:url" content="https://davstudiio.vercel.app/">
+<meta property="og:title" content="dav studio · Sites, artes e identidade visual, por Davy">
 <meta property="og:description" content="Sites, artes para Instagram, identidades visuais e gestão de redes sociais.">
-<meta property="og:image" content="assets/davy.jpg">
+<meta property="og:image" content="https://davstudiio.vercel.app/assets/davy.jpg">
+<meta property="og:image:width" content="1000">
+<meta property="og:image:height" content="1333">
+<meta property="og:image:alt" content="Foto do Davy, da dav studio">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"WebSite","@id":"https://davstudiio.vercel.app/#site","url":"https://davstudiio.vercel.app/","name":"dav studio","inLanguage":"pt-BR","publisher":{"@id":"https://davstudiio.vercel.app/#davy"}},
+{"@type":"Person","@id":"https://davstudiio.vercel.app/#davy","name":"Davy","url":"https://davstudiio.vercel.app/","image":"https://davstudiio.vercel.app/assets/davy.jpg","brand":{"@type":"Brand","name":"dav studio"},"sameAs":["https://www.instagram.com/davstudiio/"],"knowsAbout":["Criação de sites","Artes para Instagram","Identidade visual","Gestão de redes sociais"]}
+]}
+</script>
 <link rel="icon" type="image/png" href="assets/favicon.png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link href="https://api.fontshare.com/v2/css?f[]=zodiak@400,401,500,700&display=swap" rel="stylesheet">
@@ -218,6 +242,8 @@ body.carregando-ativo .abre *{animation-play-state:paused!important}
 @keyframes pulsa{0%,100%{transform:scaleY(.35)}50%{transform:scaleY(1)}}
 .pod{display:grid;justify-items:center;gap:26px;color:var(--osso)}.pod b{font-family:var(--titulo);font-weight:400;font-size:28px}
 .marca-peca{display:grid;justify-items:center;gap:14px;color:#010b13}
+.marcas6{display:grid;grid-template-columns:repeat(3,92px);gap:8px}.marcas6 i{display:grid;place-items:center;aspect-ratio:1;border-radius:10px;box-shadow:0 18px 30px -18px rgb(0 0 0/.6)}.marcas6 svg{width:46%;height:46%}
+.marca-peca>b{font-family:var(--titulo);font-weight:400;font-size:24px}
 .marca-peca .sim{font-family:var(--titulo);width:120px;height:120px;border-radius:50%;background:var(--tinta);display:grid;place-items:center;color:#fff;font-size:64px;font-style:italic}
 .marca-peca .cores{display:flex;gap:8px}.marca-peca .cores i{width:34px;height:34px;border-radius:4px}
 
@@ -398,6 +424,7 @@ dialog[open]::backdrop{animation:fundo .4s ease}
 </dialog>
 
 <script src="assets/waterline.js"></script>
+<script src="identidade/marcas.js"></script>
 <script>
 /* ---------- tela de carregamento ---------- */
 (() => {
@@ -440,12 +467,12 @@ const PECAS = {
     <div class="post-acoes"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10Z"/></svg><svg viewBox="0 0 24 24"><path d="M20 11.5a8 8 0 0 1-11.6 7.1L4 20l1.4-4.2A8 8 0 1 1 20 11.5Z"/></svg><svg viewBox="0 0 24 24"><path d="M21 4 3 11l7 2.5L12.5 21 21 4Z"/></svg></div>
     <div class="post-linhas"><span></span><span></span></div></div></div>
     <div class="rot rot--img original">${ARTES.map((a, j) => `<img class="${j ? "" : "on"}" src="${a.src}" alt="" loading="lazy">`).join("")}</div></div>`,
-  marca: () => `<div class="marca-peca"><div class="sim">D</div><div class="cores"><i style="background:#010b13"></i><i style="background:#526878"></i><i style="background:#ebf1f5;border:1px solid #c3ccd3"></i></div></div>`,
+  marca: () => `<div class="marca-peca"><div class="marcas6">${(typeof MARCAS !== "undefined" ? MARCAS : []).map(m => `<i style="background:${m.tema.fundo}">${Logo.svg(m, "simbolo", m.tema.claro ? m.tema.tinta : m.tema.papel, 'aria-hidden="true"', m.tema.acento)}</i>`).join("")}</div><b>6 identidades visuais</b></div>`,
   carta: () => `<div class="frase"><span>Cada projeto,</span><em>com atenção.</em></div>`,
   contato: () => `<div class="slides" id="slides-palco"></div>`,
   pod: () => `<div class="foto-livre" role="img" aria-label="Microfone de estúdio em fundo preto"></div>`,
 };
-const LEGENDAS = {carta:"Sobre mim",contato:"Fale comigo",foto:"Davy, 2026",proprio:"Este portfólio · 2026",techcell:"TECHCELL · loja conceitual · 2026",site:"Site para pequeno negócio · representação",insta:"Artes para Instagram · projetos ilustrativos",marca:"Identidade visual · representação",pod:"Experiências e cursos"};
+const LEGENDAS = {carta:"Sobre mim",contato:"Fale comigo",foto:"Davy, 2026",proprio:"Este portfólio · 2026",techcell:"TECHCELL · loja conceitual · 2026",site:"Site para pequeno negócio · representação",insta:"Artes para Instagram · projetos ilustrativos",marca:"Identidades visuais · projetos conceituais",pod:"Experiências e cursos"};
 const ORDEM = ["foto","techcell","proprio","site","insta","pod","contato"];
 
 const PROJETOS = [
@@ -453,7 +480,7 @@ const PROJETOS = [
   {q:"proprio",titulo:"Este portfólio",meta:"Sites · 2026",status:"Pronto",tipo:"Sites",ano:"2026",desc:"Queria um lugar meu na internet, com a minha cara. Planejei as seções e montei cada parte com ajuda da inteligência artificial, testando no computador e no celular."},
   {q:"site",titulo:"Site para pequeno negócio",meta:"Sites",status:"Em produção",tipo:"Sites",ano:"—",desc:"Estou trabalhando nele agora. Quando ficar pronto, aqui vão aparecer as telas do site e o que mudou para o negócio."},
   {q:"insta",titulo:"Artes para Instagram",meta:"Instagram · 6 posts",status:"Projeto ilustrativo",tipo:"Instagram",ano:"2026",galeria:true,desc:"Seis posts para seis nichos: tecnologia, moda, hamburgueria, estética, imobiliária e academia. As marcas são fictícias, criadas para mostrar como adapto o visual a cada tipo de cliente. Clique numa arte para ver todas em slide."},
-  {q:"marca",titulo:"Identidade visual",meta:"Design",status:"Em produção",tipo:"Design",ano:"—",desc:"Logo, cores e jeito de falar para uma marca nova. Em breve, aqui vai aparecer como ela ficou aplicada."}
+  {q:"marca",titulo:"Identidade visual",meta:"Branding · 6 marcas",status:"Projeto conceitual",tipo:"Branding",ano:"2026",pagina:"identidade-visual.html",desc:"Seis marcas fictícias, cada uma com conceito, logotipo, paleta, tipografia, aplicações e redes sociais: moda urbana, skincare, barbearia, arquitetura, tecnologia e cafeteria. São projetos conceituais da dav studio para mostrar como construo uma identidade completa."}
 ];
 
 /* artes do Instagram passando: celular e original trocam juntos */
@@ -477,7 +504,7 @@ function mostrar(q){
 
 /* projetos */
 const livro = document.getElementById("livro");
-livro.innerHTML = PROJETOS.map((p,i) => `<li data-q="${p.q}"><button type="button" data-i="${i}"><span class="nr">0${i+1}</span><span><b>${p.titulo}${p.status==="Em produção"?'<span class="selo">em produção</span>':p.status==="Projeto ilustrativo"?'<span class="selo">projeto ilustrativo</span>':""}</b><small>${p.meta}</small></span><span class="seta">↗</span></button><div class="previa-cel">${PECAS[p.q]()}</div></li>`).join("");
+livro.innerHTML = PROJETOS.map((p,i) => `<li data-q="${p.q}"><button type="button" data-i="${i}"><span class="nr">0${i+1}</span><span><b>${p.titulo}${p.status==="Em produção"?'<span class="selo">em produção</span>':p.status==="Projeto ilustrativo"?'<span class="selo">projeto ilustrativo</span>':p.status==="Projeto conceitual"?'<span class="selo">projeto conceitual</span>':""}</b><small>${p.meta}</small></span><span class="seta">↗</span></button><div class="previa-cel">${PECAS[p.q]()}</div></li>`).join("");
 const itens = [...livro.children];
 const celular = () => matchMedia("(max-width: 760px)").matches;
 itens.forEach(li => {
@@ -496,7 +523,7 @@ function preencher(i){
   document.getElementById("det-vis").innerHTML = p.galeria ? GALERIA() : PECAS[p.q]();
   document.getElementById("det-txt").innerHTML = `<p class="meta">${p.meta}</p><h3 id="det-t">${p.titulo}</h3><p class="desc">${p.desc}</p>
     <dl class="ficha"><div><dt>Tipo</dt><dd>${p.tipo}</dd></div><div><dt>Ano</dt><dd>${p.ano}</dd></div><div><dt>Situação</dt><dd>${p.status}</dd></div></dl>
-    <div class="acoes-det">${p.galeria ? `<button class="botao botao--cheio" type="button" data-arte="0">Ver as artes <span class="seta">→</span></button>` : ""}${p.link ? `<a class="botao botao--cheio" href="${p.link}" target="_blank" rel="noopener">Ver o site <span class="seta">→</span></a>` : ""}<a class="botao ${p.galeria || p.link ? "botao--linha" : "botao--cheio"}" href="https://wa.me/5583981788413?text=${encodeURIComponent(`Olá Davy! Vi "${p.titulo}" no seu portfólio.`)}" target="_blank" rel="noopener">Falar sobre isso <span class="seta">→</span></a></div>
+    <div class="acoes-det">${p.galeria ? `<button class="botao botao--cheio" type="button" data-arte="0">Ver as artes <span class="seta">→</span></button>` : ""}${p.link ? `<a class="botao botao--cheio" href="${p.link}" target="_blank" rel="noopener">Ver o site <span class="seta">→</span></a>` : ""}${p.pagina ? `<a class="botao botao--cheio" href="${p.pagina}">Ver as identidades <span class="seta">→</span></a>` : ""}<a class="botao ${p.galeria || p.link || p.pagina ? "botao--linha" : "botao--cheio"}" href="https://wa.me/5583981788413?text=${encodeURIComponent(`Olá Davy! Vi "${p.titulo}" no seu portfólio.`)}" target="_blank" rel="noopener">Falar sobre isso <span class="seta">→</span></a></div>
     <div class="nav-det"><button class="botao botao--linha" data-p="-1"><span class="seta seta--esq">←</span> Anterior</button><span>${i+1} de ${PROJETOS.length}</span><button class="botao botao--linha" data-p="1">Próximo <span class="seta">→</span></button></div>`;
   document.querySelectorAll("#det-txt [data-p]").forEach(b => b.onclick = () => preencher((aberto + +b.dataset.p + PROJETOS.length) % PROJETOS.length));
 }
