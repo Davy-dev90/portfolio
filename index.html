@@ -138,10 +138,9 @@ body.carregando-ativo .abre *{animation-play-state:paused!important}
 .livro .previa-cel{display:none}
 
 /* abas de projetos: sites, posts e identidade visual */
-.abas{display:inline-flex;gap:4px;max-width:100%;padding:5px;margin-bottom:24px;border-radius:999px;background:rgba(235,241,245,.06);box-shadow:inset 0 1px 1px rgba(255,255,255,.2),inset 0 0 0 1px rgba(235,241,245,.16)}
-.abas button{padding:10px 20px;border:0;border-radius:999px;background:none;color:var(--suave);font:500 15px var(--texto);white-space:nowrap;cursor:pointer;transition:background .25s,color .25s}
-.abas button:hover{color:var(--osso)}
-.abas button[aria-selected="true"]{color:var(--tinta);background:linear-gradient(180deg,#fff,rgba(235,241,245,.8))}
+.abas{margin-bottom:24px}
+.abas .nimbus-item{white-space:nowrap}
+@media (max-width:360px){.abas .nimbus-item{padding:0 9px}}
 .aba-painel{animation:aparece .5s var(--saida)}
 .obras-nota{margin-bottom:18px;color:var(--suave);font-size:15px}
 .obras{display:grid;grid-template-columns:repeat(3,1fr);gap:18px 10px}
@@ -332,7 +331,7 @@ dialog[open]::backdrop{animation:fundo .4s ease}
   .secao{padding:56px 22px}.secao h2{font-size:36px}
   .carta p{font-size:18px}
   .menu-folha{columns:1}
-  .abas{display:flex}.abas button{flex:auto;padding:10px 12px;font-size:14px;text-align:center}
+  .abas .nv-ico{display:none}.abas .nimbus-label{position:static;width:auto;height:auto;overflow:visible;clip:auto}
   .obras{grid-template-columns:repeat(2,1fr)}
   .livro button{grid-template-columns:auto 1fr auto;padding:16px 4px}
   .livro b{font-size:22px}
@@ -372,9 +371,9 @@ dialog[open]::backdrop{animation:fundo .4s ease}
     <section class="secao entra" id="projetos" data-quadro="proprio">
       <h2>Projetos</h2>
       <div class="abas" role="tablist" aria-label="Categorias de projetos">
-        <button type="button" role="tab" id="aba-sites" aria-controls="painel-sites" aria-selected="true" data-quadro="proprio">Sites</button>
-        <button type="button" role="tab" id="aba-posts" aria-controls="painel-posts" aria-selected="false" tabindex="-1" data-quadro="insta">Posts</button>
-        <button type="button" role="tab" id="aba-marcas" aria-controls="painel-marcas" aria-selected="false" tabindex="-1" data-quadro="marca">Identidade visual</button>
+        <button class="nimbus-item" type="button" role="tab" id="aba-sites" aria-controls="painel-sites" aria-selected="true" data-quadro="proprio" data-fx="spin"><span class="nv-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.6 2.4 2.6 14.6 0 17M12 3.5c-2.6 2.4-2.6 14.6 0 17"/></svg></span><span class="nimbus-label">Sites</span></button>
+        <button class="nimbus-item" type="button" role="tab" id="aba-posts" aria-controls="painel-posts" aria-selected="false" tabindex="-1" data-quadro="insta" data-fx="pop"><span class="nv-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="3.5"/><circle cx="9" cy="9.5" r="1.6"/><path d="m4.5 17 4.8-4.4 3.2 2.9 2.7-2.4 4.3 3.9"/></svg></span><span class="nimbus-label">Posts</span></button>
+        <button class="nimbus-item" type="button" role="tab" id="aba-marcas" aria-controls="painel-marcas" aria-selected="false" tabindex="-1" data-quadro="marca" data-fx="wave"><span class="nv-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5 19.5 8v8L12 20.5 4.5 16V8Z"/><circle cx="12" cy="12" r="2.6"/></svg></span><span class="nimbus-label">Identidade visual</span></button>
       </div>
       <div class="aba-painel" id="painel-sites" role="tabpanel" aria-labelledby="aba-sites"><ul class="livro" id="livro"></ul></div>
       <div class="aba-painel" id="painel-posts" role="tabpanel" aria-labelledby="aba-posts" hidden>
@@ -578,6 +577,8 @@ abas.forEach((a, i) => {
     trocarAba(prox); prox.focus();
   });
 });
+/* mesma pílula de água do menu do topo */
+if (window.Waterline) Waterline(document.querySelector(".abas"), { tone: "dark", ativo: 0 });
 
 /* painel de detalhes, crescendo a partir da linha clicada */
 const painel = document.getElementById("painel"); let aberto = 0;
