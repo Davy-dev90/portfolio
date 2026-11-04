@@ -1,0 +1,5 @@
+{
+  "redirects": [
+    { "source": "/identidade-visual.html", "destination": "/", "permanent": false }
+  ]
+}
