@@ -405,6 +405,8 @@ section[id]{scroll-margin-top:84px}
 
 /* sobre */
 .sobre__foto{display:none}
+/* imagens que no computador ficam no palco: no celular entram dentro da seção */
+.cena-cel{display:none}
 .destaques{margin:34px 0 0;border-top:1px solid var(--linha)}
 .destaques div{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:18px;padding:14px 0;border-bottom:1px solid var(--linha)}
 .destaques dt{font-family:var(--titulo);font-size:18px;line-height:1.3}
@@ -445,26 +447,36 @@ section[id]{scroll-margin-top:84px}
 .davy-plate-img{width:112px}
 
 /* menu: nome completo quando cabe; sem espaço, só o item ativo mostra o nome */
-@media (min-width:961px) and (max-width:1180px),(max-width:560px){
+@media (min-width:961px) and (max-width:1180px),(max-width:339px){
   .menu-agua .nimbus-label{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
   .menu-agua .nimbus-item[aria-current="true"] .nimbus-label{position:static;width:auto;height:auto;overflow:visible;clip:auto}
 }
-@media (min-width:561px) and (max-width:760px){
+@media (min-width:340px) and (max-width:760px){
   .menu-agua .nimbus-label{position:static;width:auto;height:auto;overflow:visible;clip:auto}
 }
-@media (max-width:360px){
+/* celular: os quatro nomes do menu sempre à mostra; não cabem junto com os ícones */
+@media (min-width:340px) and (max-width:560px){
+  .menu-agua .nv-ico{display:none}
+  .menu-agua .nimbus-item{padding:0 8px;font-size:13px}
+  .topo{gap:8px}.topo .topo__marca img{height:22px}
+}
+@media (min-width:340px) and (max-width:374px){
+  .menu-agua .nimbus-item{padding:0 6px;font-size:12.5px}
+  .topo .topo__marca img{height:20px}
+}
+@media (max-width:339px){
   .menu-agua .nimbus-item[aria-current="true"] .nimbus-label{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
   .topo__marca img{height:24px}
 }
 /* abas de projetos: ícones e nomes longos só onde cabem */
-@media (max-width:1400px){.abas .nv-ico{display:none}}
-@media (min-width:961px) and (max-width:1240px),(max-width:620px){
+@media (min-width:961px) and (max-width:1100px),(max-width:560px){.abas .nv-ico{display:none}}
+@media (max-width:359px){
   .rot-longo{display:none}.rot-curto{display:inline}
 }
 @media (max-width:760px){
   .abas .nimbus-label{position:static;width:auto;height:auto;overflow:visible;clip:auto}
 }
-@media (max-width:360px){.abas .nimbus-item{padding:0 9px}}
+@media (max-width:374px){.abas .nimbus-item{padding:0 9px}}
 @media (min-width:961px) and (max-width:1240px){.casos--marcas .caso__txt{padding:14px}}
 
 /* ---------- tablet e celular ---------- */
@@ -482,7 +494,7 @@ section[id]{scroll-margin-top:84px}
   .secao{padding:56px 22px}.secao h2{font-size:36px}
   .carta p{font-size:18px}
   .menu-folha{columns:1}
-  .abas .nv-ico{display:none}.abas .nimbus-label{position:static;width:auto;height:auto;overflow:visible;clip:auto}
+  .abas .nimbus-label{position:static;width:auto;height:auto;overflow:visible;clip:auto}
   .obras{grid-template-columns:repeat(2,1fr)}
   .det{grid-template-columns:1fr;grid-template-rows:38svh 1fr}
   .det .txt{padding:22px 20px 18px}
@@ -492,7 +504,12 @@ section[id]{scroll-margin-top:84px}
   .artes__seta{display:none}.artes__nome{font-size:19px}
   .flutua{right:16px;bottom:max(16px,env(safe-area-inset-bottom));gap:8px}
   .flutua__item{width:48px;height:48px}.flutua__item span{display:none}
-  .flutua.longe{opacity:0;pointer-events:none;transform:translateY(16px)}
+  .cena-cel{display:grid;place-items:center;position:relative;height:220px;margin:14px 0 4px;border-radius:12px;overflow:hidden}
+  .secao>h2+.cena-cel{margin:0 0 24px}
+  .cena-cel .mock-site{width:min(68%,300px)}.cena-cel .mock-site .nav{width:100%}
+  .cena-cel .painel-mock{width:min(66%,250px)}.painel-mock .topo-mock i{height:24px}.cena-cel .painel-mock>div{padding:10px;gap:8px}.cena-cel .painel-mock aside{padding:10px 8px;gap:6px}.cena-cel .painel-mock .barras{padding:8px}
+  .cena-cel .dupla{width:min(62%,230px)}.cena-cel .dupla .cel{padding:4px;border-radius:14px}.cena-cel .dupla .cel .tela{border-radius:11px}.cena-cel .post-topo{padding:12px 5px 4px;gap:4px}.cena-cel .post-topo b,.cena-cel .post-topo u{font-size:6px}.cena-cel .post-acoes{gap:5px;padding:4px 5px}.cena-cel .post-linhas{gap:3px;padding:1px 5px}.cena-cel .post-linhas span{height:3px}.cena-cel .post-topo i{width:11px;height:11px}.cena-cel .post-acoes svg{width:9px;height:9px}
+  .cena-cel .frase{font-size:32px;padding:0 16px}
   .rodape{padding:36px 22px 24px}.rodape__grade{grid-template-columns:repeat(3,minmax(0,1fr))}.rodape__marca{grid-column:1/-1}
   .sobre__foto{display:block;width:132px;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:center 22%;margin-bottom:22px;border-radius:12px}
   .cena__site{left:3%;bottom:24%;width:24%;border-radius:7px}.cena__post{right:3%;top:5%;width:15%;border-radius:6px}.cena__barra{height:9px;padding:0 5px;gap:3px}.cena__barra i{width:3px;height:3px}
@@ -503,7 +520,6 @@ section[id]{scroll-margin-top:84px}
 @media (max-width:560px){
   .acoes{flex-direction:column;align-self:stretch}.acoes .botao{justify-content:center}
   .obras-contato div{flex-direction:column}.obras-contato .botao{justify-content:center}
-  .flutua__item--insta{display:none}
   .casos{grid-template-columns:minmax(0,1fr)}
   .casos--marcas .caso{flex-direction:row}.casos--marcas .caso__capa{flex:0 0 34%;aspect-ratio:auto}.casos--marcas .caso__txt{padding:14px;min-width:0}.casos--marcas h4{font-size:20px}.casos--marcas .caso__obj{font-size:14px}
   .destaques div{grid-template-columns:minmax(0,1fr);gap:2px}
@@ -632,6 +648,7 @@ section[id]{scroll-margin-top:84px}
 
 <section class="secao entra" id="experiencias" data-quadro="pod" data-menu="2">
       <h2>Experiências <em>e cursos</em></h2>
+      <div class="cena-cel" data-peca="pod" aria-hidden="true"></div>
       <div class="caixas">
         <article class="caixa">
           <span class="caixa__rotulo">Experiências</span>
@@ -646,6 +663,7 @@ section[id]{scroll-margin-top:84px}
 
     <section class="secao entra" id="processo" data-quadro="carta" data-menu="2">
       <h2>Como funciona <em>meu trabalho</em></h2>
+      <div class="cena-cel" data-peca="carta" aria-hidden="true"></div>
       <ol class="passos">
         <li class="passo"><span class="passo__nr">1</span><h3>Primeiro contato</h3><p>Você explica sua ideia e o que precisa.</p></li>
         <li class="passo"><span class="passo__nr">2</span><h3>Planejamento</h3><p>Definimos o projeto, as funcionalidades e o orçamento.</p></li>
@@ -830,6 +848,10 @@ function mostrar(q){
   atual = q;
   document.getElementById("legenda").textContent = LEGENDAS[q];
 }
+
+/* celular: as imagens do palco também aparecem dentro das seções */
+document.querySelectorAll(".servico[data-q]").forEach(s => s.lastElementChild.insertAdjacentHTML("beforeend", `<div class="cena-cel" data-peca="${s.dataset.q}" aria-hidden="true"></div>`));
+document.querySelectorAll("[data-peca]").forEach(d => { d.classList.add(`q-${d.dataset.peca}`); d.innerHTML = PECAS[d.dataset.peca](); });
 
 /* projetos: cartões de estudo de caso por categoria */
 const casoHTML = p => `<article class="caso${p.grande ? " caso--grande" : ""}" data-q="${p.q}" data-caso="${p.q}">
@@ -1059,8 +1081,22 @@ if (matchMedia("(hover:hover) and (prefers-reduced-motion: no-preference)").matc
   }, { passive: true });
 }
 
-/* celular: os ícones fixos saem da frente na primeira tela, que já tem os botões */
-new IntersectionObserver(([e]) => flutua.classList.toggle("longe", e.isIntersecting), {rootMargin:"-10% 0px -10% 0px"}).observe(document.querySelector(".abre"));
+/* WhatsApp: a mensagem pronta vai só no primeiro clique; depois o botão abre a conversa sem texto */
+(() => {
+  const CHAVE = "whatsapp-mensagem-usada";
+  let usada = false;
+  try { usada = !!localStorage.getItem(CHAVE); } catch {}
+  const aoAbrir = e => {
+    if (e.type === "auxclick" && e.button !== 1) return;
+    const a = e.target.closest && e.target.closest('a[href*="wa.me/"]');
+    if (!a) return;
+    if (usada) { a.href = a.href.split("?")[0]; return; }
+    usada = true;
+    try { localStorage.setItem(CHAVE, "1"); } catch {}
+  };
+  document.addEventListener("click", aoAbrir, true);
+  document.addEventListener("auxclick", aoAbrir, true);
+})();
 </script>
 <script src="assets/aviso-cookies.js"></script>
 </body></html>
